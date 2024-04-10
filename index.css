@@ -3,12 +3,51 @@ html, body {
     padding: 0;
     font-family: 'Manrope', sans-serif;
 }
-body {
-    margin: 1em;
+/* =================
+    Site Layout 
+   ================= */
+/* 
+Challenge:
+    1. Get the header, main, and footer 
+       into a vertical column. 
+    2. Put an em of space between them 
+       vertically.
+    3. Put an em of space above the header, 
+       below the footer, and to the left and 
+       right of all three elements.  
+    🤔 Have you learned any good techniques 
+       for creating empty rows/columns in a grid?
+    ⚠️ You do NOT need to use the 'margin' 
+       property to complete this challenge.
+    🛟 hint.md for help!
+ */
+
+ body {
+    display: grid;
+    grid-template-columns: 1em 1fr 1em;
+    row-gap: 1em;
+    grid-template-rows: repeat(5, 1rf);
+    grid-template-areas: 
+    ". . ."
+    ". head ."
+    ". main ."
+    ". foot ."
+    ". . .";
 }
 
+.site-header {
+    grid-area: head;
+}
+
+footer {
+    grid-area: foot
+    
+}
+
+
+
 /* =================
-    Layout
+    Main Element Layout
    ================= */
      
 .technology {
@@ -31,6 +70,7 @@ body {
     grid-area: heal
 } 
    main {
+    grid-area: main;
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;
@@ -55,7 +95,7 @@ body {
 
 @media (min-width: 870px) {
     main {
-        grid-template-columns: repeat(12, 1fr);
+        grid-template-columns: repeat(9, 1fr) repeat(3, minmax(70px, 1fr) );
         grid-template-areas:
         "tech tech tech tech tech tech envi envi envi nasa nasa nasa"
         "phys phys phys heal heal heal heal heal heal nasa nasa nasa";
