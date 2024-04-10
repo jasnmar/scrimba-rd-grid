@@ -14,7 +14,7 @@ body {
    main {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 1em;
+    gap: 1em;
     /* 
     Challenge:
         1. Set up the "main" element as a grid container. 
@@ -22,6 +22,32 @@ body {
         3. Place 1em of space between each grid item. 
     */
     }
+@media (min-width: 500px) {
+    /*
+    Challenge:
+        1. Make our layout look like the screenshot. 
+        (📝 Try to write the least CSS possible.)  
+    */
+        main {
+            display: grid;
+            grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
+        } 
+        .technology {
+            grid-column: span 2;
+        }
+        .environment {   
+        }
+        .nasa {
+            grid-row: span 2;
+        }
+        .physics {
+        }
+        .health {
+            grid-column: span 2;
+        }  
+    }
+
+
 /* =================
     Article Card 
    ================= */
