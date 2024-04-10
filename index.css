@@ -10,44 +10,58 @@ body {
 /* =================
     Layout
    ================= */
-   
+     
+.technology {
+    grid-area: tech;
+}
+
+.environment {
+    grid-area: envi;
+}
+    
+.nasa {
+    grid-area: nasa;
+}
+
+.physics { 
+    grid-area: phys;
+}
+
+.health {
+    grid-area: heal
+} 
    main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;
-    /* 
-    Challenge:
-        1. Set up the "main" element as a grid container. 
-        2. Specify a template of one column with 1fr width.
-        3. Place 1em of space between each grid item. 
-    */
+    grid-template-areas:
+    "tech"
+    "envi"
+    "masa"
+    "phys"
+    "heal"
+
     }
 @media (min-width: 500px) {
-    /*
-    Challenge:
-        1. Make our layout look like the screenshot. 
-        (📝 Try to write the least CSS possible.)  
-    */
-        main {
-            display: grid;
-            grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
-        } 
-        .technology {
-            grid-column: span 2;
-        }
-        .environment {   
-        }
-        .nasa {
-            grid-row: span 2;
-        }
-        .physics {
-        }
-        .health {
-            grid-column: span 2;
-        }  
-    }
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "tech tech"
+        "envi nasa"
+        "phys nasa"
+        "heal heal";
+    } 
+}
 
+@media (min-width: 870px) {
+    main {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-areas:
+        "tech tech tech tech tech tech envi envi envi nasa nasa nasa"
+        "phys phys phys heal heal heal heal heal heal nasa nasa nasa";
 
+    } 
+}
 /* =================
     Article Card 
    ================= */
